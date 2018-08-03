@@ -1,6 +1,6 @@
 package com.zy.vehiclerepairer.controller;
 
-import com.zy.vehiclerepairer.domain.model.Person;
+import com.zy.vehiclerepairer.model.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

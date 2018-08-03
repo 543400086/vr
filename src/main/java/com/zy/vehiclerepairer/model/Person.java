@@ -1,4 +1,4 @@
-package com.zy.vehiclerepairer.domain.model;
+package com.zy.vehiclerepairer.model;
 
 /**
  * @author shugui.zhang 2018/7/9 13:47

@@ -1,7 +1,7 @@
 package com.zy.vehiclerepairer.service;
 
-import com.zy.vehiclerepairer.domain.mapper.UserMapper;
-import com.zy.vehiclerepairer.domain.model.User;
+import com.zy.vehiclerepairer.mapper.UserMapper;
+import com.zy.vehiclerepairer.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

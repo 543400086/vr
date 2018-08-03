@@ -1,6 +1,6 @@
 package com.zy.vehiclerepairer.controller;
 
-import com.zy.vehiclerepairer.domain.model.User;
+import com.zy.vehiclerepairer.model.User;
 import com.zy.vehiclerepairer.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,6 +1,6 @@
-package com.zy.vehiclerepairer.domain.mapper;
+package com.zy.vehiclerepairer.mapper;
 
-import com.zy.vehiclerepairer.domain.model.User;
+import com.zy.vehiclerepairer.model.User;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
