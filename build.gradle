@@ -26,12 +26,12 @@ targetCompatibility = 1.8
 
 
 repositories {
-	maven {
-		url 'http://172.17.0.59:8081/nexus/content/groups/public'
-	}
-	maven {
-		url 'http://maven.zhaopin.com:8000/nexus/content/groups/public'
-	}
+//	maven {
+//		url 'http://172.17.0.59:8081/nexus/content/groups/public'
+//	}
+//	maven {
+//		url 'http://maven.zhaopin.com:8000/nexus/content/groups/public'
+//	}
 	maven {
 		url 'http://repo.spring.io/snapshot'
 	}

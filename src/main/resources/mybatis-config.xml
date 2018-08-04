@@ -3,10 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <!--指定一个包名，MyBatis 会在包名下面搜索需要的 Java Bean-->
-    <typeAliases>
-        <package name="com.zy.vehiclerepairer.model"/>
-    </typeAliases>
-    <mappers>
-        <mapper resource="sqlmap/UserMapper.xml"/>
-    </mappers>
+    <!--<typeAliases>-->
+        <!--<package name="com.zy.vehiclerepairer.model"/>-->
+    <!--</typeAliases>-->
+    <!--<mappers>-->
+        <!--<mapper resource="sqlmap/UserMapper.xml"/>-->
+    <!--</mappers>-->
 </configuration>
