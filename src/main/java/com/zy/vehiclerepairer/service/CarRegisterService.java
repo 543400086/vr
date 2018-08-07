@@ -14,6 +14,7 @@ public class CarRegisterService {
 
 
     public List<CarRegisterModel> getCarList() {
-        return carRegisterMapper.getCarList();
+       // return carRegisterMapper.getCarList();
+        return null;
     }
 }

@@ -2,6 +2,10 @@ package com.zy.vehiclerepairer.model;
 
 import java.io.Serializable;
 
+/**
+ * @author zhangshugui
+ * 修车登记表
+ */
 public class CarRegisterModel implements Serializable {
     private int id;
     private String mark;
