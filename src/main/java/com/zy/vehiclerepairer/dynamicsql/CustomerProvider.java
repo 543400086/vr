@@ -2,7 +2,7 @@ package com.zy.vehiclerepairer.dynamicsql;
 
 import java.util.Map;
 
-public class CarRegisterProvider {
+public class CustomerProvider {
     public String listCarRegister(Map<String, Object> sqlMap) {
         StringBuffer sql = new StringBuffer();
         sql.append("SELECT id,mark,type,factory,name,mobile,address,createTime,createBy FROM CarRegister WHERE mobile=");
@@ -13,15 +13,8 @@ public class CarRegisterProvider {
             sql.append(String.format("AND name %s", sqlMap.get("name").toString()));
         }
         //车牌号
-        if (sqlMap.get("mark") != null) {
-            sql.append(String.format("AND mark %s", sqlMap.get("mark").toString()));
-        }
-
-        if (sqlMap.get("pageIndex") != null && Integer.valueOf(sqlMap.get("pageIndex").toString()) > 0) {
-            int pageIndex = Integer.valueOf(sqlMap.get("pageIndex").toString());
-            int pageSize = Integer.valueOf(sqlMap.get("pageSize").toString());
-            int rows = (pageIndex - 1) * pageSize;
-            sql.append(String.format(" limit %d,%d ", pageSize, rows));
+        if (sqlMap.get("plateNumber") != null) {
+            sql.append(String.format("AND plateNumber %s", sqlMap.get("plateNumber").toString()));
         }
 
         return sql.toString();
