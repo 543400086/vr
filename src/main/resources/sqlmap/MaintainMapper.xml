@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zy.vehiclerepairer.mapper.MaintainMapper">
+  <resultMap id="BaseResultMap" type="com.zy.vehiclerepairer.model.Maintain">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="customerId" jdbcType="INTEGER" property="customerId" />
+    <result column="projctId" jdbcType="INTEGER" property="projctId" />
+    <result column="partId" jdbcType="INTEGER" property="partId" />
+    <result column="beginTime" jdbcType="TIMESTAMP" property="beginTime" />
+    <result column="endTime" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="totalPrice" jdbcType="DECIMAL" property="totalPrice" />
+    <result column="discount" jdbcType="DECIMAL" property="discount" />
+    <result column="discountAmount" jdbcType="DECIMAL" property="discountAmount" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="maintainName" jdbcType="VARCHAR" property="maintainName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, customerId, projctId, partId, beginTime, endTime, totalPrice, discount, discountAmount, 
+    status, maintainName
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Maintain
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Maintain
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zy.vehiclerepairer.model.Maintain">
+    insert into Maintain (id, customerId, projctId, 
+      partId, beginTime, endTime, 
+      totalPrice, discount, discountAmount, 
+      status, maintainName)
+    values (#{id,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER}, #{projctId,jdbcType=INTEGER}, 
+      #{partId,jdbcType=INTEGER}, #{beginTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{totalPrice,jdbcType=DECIMAL}, #{discount,jdbcType=DECIMAL}, #{discountAmount,jdbcType=DECIMAL}, 
+      #{status,jdbcType=INTEGER}, #{maintainName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zy.vehiclerepairer.model.Maintain">
+    insert into Maintain
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="customerId != null">
+        customerId,
+      </if>
+      <if test="projctId != null">
+        projctId,
+      </if>
+      <if test="partId != null">
+        partId,
+      </if>
+      <if test="beginTime != null">
+        beginTime,
+      </if>
+      <if test="endTime != null">
+        endTime,
+      </if>
+      <if test="totalPrice != null">
+        totalPrice,
+      </if>
+      <if test="discount != null">
+        discount,
+      </if>
+      <if test="discountAmount != null">
+        discountAmount,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="maintainName != null">
+        maintainName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="projctId != null">
+        #{projctId,jdbcType=INTEGER},
+      </if>
+      <if test="partId != null">
+        #{partId,jdbcType=INTEGER},
+      </if>
+      <if test="beginTime != null">
+        #{beginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalPrice != null">
+        #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="discount != null">
+        #{discount,jdbcType=DECIMAL},
+      </if>
+      <if test="discountAmount != null">
+        #{discountAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="maintainName != null">
+        #{maintainName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zy.vehiclerepairer.model.Maintain">
+    update Maintain
+    <set>
+      <if test="customerId != null">
+        customerId = #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="projctId != null">
+        projctId = #{projctId,jdbcType=INTEGER},
+      </if>
+      <if test="partId != null">
+        partId = #{partId,jdbcType=INTEGER},
+      </if>
+      <if test="beginTime != null">
+        beginTime = #{beginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        endTime = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalPrice != null">
+        totalPrice = #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="discount != null">
+        discount = #{discount,jdbcType=DECIMAL},
+      </if>
+      <if test="discountAmount != null">
+        discountAmount = #{discountAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="maintainName != null">
+        maintainName = #{maintainName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zy.vehiclerepairer.model.Maintain">
+    update Maintain
+    set customerId = #{customerId,jdbcType=INTEGER},
+      projctId = #{projctId,jdbcType=INTEGER},
+      partId = #{partId,jdbcType=INTEGER},
+      beginTime = #{beginTime,jdbcType=TIMESTAMP},
+      endTime = #{endTime,jdbcType=TIMESTAMP},
+      totalPrice = #{totalPrice,jdbcType=DECIMAL},
+      discount = #{discount,jdbcType=DECIMAL},
+      discountAmount = #{discountAmount,jdbcType=DECIMAL},
+      status = #{status,jdbcType=INTEGER},
+      maintainName = #{maintainName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

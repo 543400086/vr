@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zy.vehiclerepairer.mapper.CustomerMapper">
+  <resultMap id="BaseResultMap" type="com.zy.vehiclerepairer.model.Customer">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="customerName" jdbcType="VARCHAR" property="customerName" />
+    <result column="moble" jdbcType="VARCHAR" property="moble" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="plateNumber" jdbcType="VARCHAR" property="plateNumber" />
+    <result column="engineNumber" jdbcType="VARCHAR" property="engineNumber" />
+    <result column="datetime" jdbcType="TIMESTAMP" property="datetime" />
+    <result column="createBy" jdbcType="VARCHAR" property="createBy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, customerName, moble, address, type, plateNumber, engineNumber, datetime, createBy
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Customer
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Customer
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zy.vehiclerepairer.model.Customer">
+    insert into Customer (id, customerName, moble, 
+      address, type, plateNumber, 
+      engineNumber, datetime, createBy
+      )
+    values (#{id,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, #{moble,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{plateNumber,jdbcType=VARCHAR}, 
+      #{engineNumber,jdbcType=VARCHAR}, #{datetime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zy.vehiclerepairer.model.Customer">
+    insert into Customer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="customerName != null">
+        customerName,
+      </if>
+      <if test="moble != null">
+        moble,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="plateNumber != null">
+        plateNumber,
+      </if>
+      <if test="engineNumber != null">
+        engineNumber,
+      </if>
+      <if test="datetime != null">
+        datetime,
+      </if>
+      <if test="createBy != null">
+        createBy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="customerName != null">
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="moble != null">
+        #{moble,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="plateNumber != null">
+        #{plateNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="engineNumber != null">
+        #{engineNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="datetime != null">
+        #{datetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zy.vehiclerepairer.model.Customer">
+    update Customer
+    <set>
+      <if test="customerName != null">
+        customerName = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="moble != null">
+        moble = #{moble,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="plateNumber != null">
+        plateNumber = #{plateNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="engineNumber != null">
+        engineNumber = #{engineNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="datetime != null">
+        datetime = #{datetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        createBy = #{createBy,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zy.vehiclerepairer.model.Customer">
+    update Customer
+    set customerName = #{customerName,jdbcType=VARCHAR},
+      moble = #{moble,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      plateNumber = #{plateNumber,jdbcType=VARCHAR},
+      engineNumber = #{engineNumber,jdbcType=VARCHAR},
+      datetime = #{datetime,jdbcType=TIMESTAMP},
+      createBy = #{createBy,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

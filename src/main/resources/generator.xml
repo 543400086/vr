@@ -27,7 +27,7 @@
         <!--同样Mac用户：targetProject 为全路径-->
         <javaModelGenerator targetPackage="com.zy.vehiclerepairer.model" targetProject="src/main/java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
-            <property name="enableSubPackages" value="true"/>
+            <property name="enableSubPackages" value="false"/>
             <!-- 从数据库返回的值被清理前后的空格 -->
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
@@ -50,8 +50,8 @@
         <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample
             是否生成 example类 -->
 
-        <table schema="vr" tableName="test"
-               domainObjectName="test" enableCountByExample="false"
+        <table schema="vr" tableName="Maintain"
+               domainObjectName="Maintain" enableCountByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false">
             <!-- 生成的bean的属性不采用驼峰-->
