@@ -10,7 +10,13 @@ public class CustomerModel implements Serializable {
     private int id;
     private String name;
     private String moble;
+    /**
+     * 地址
+     */
     private String address;
+    /**
+     * 车型
+     */
     private String type;
     /**
      * 车牌号
