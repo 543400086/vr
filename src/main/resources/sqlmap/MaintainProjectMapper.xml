@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zy.vehiclerepairer.mapper.MaintainProjectMapper">
+  <resultMap id="BaseResultMap" type="com.zy.vehiclerepairer.model.MaintainProject">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="projectName" jdbcType="VARCHAR" property="projectName" />
+    <result column="chargeUnit" jdbcType="VARCHAR" property="chargeUnit" />
+    <result column="carType" jdbcType="VARCHAR" property="carType" />
+    <result column="TimeFee" jdbcType="INTEGER" property="timeFee" />
+    <result column="guaranteeTime" jdbcType="INTEGER" property="guaranteeTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, projectName, chargeUnit, carType, TimeFee, guaranteeTime, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from MaintainProject
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from MaintainProject
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zy.vehiclerepairer.model.MaintainProject">
+    insert into MaintainProject (id, projectName, chargeUnit, 
+      carType, TimeFee, guaranteeTime, 
+      remark)
+    values (#{id,jdbcType=INTEGER}, #{projectName,jdbcType=VARCHAR}, #{chargeUnit,jdbcType=VARCHAR}, 
+      #{carType,jdbcType=VARCHAR}, #{timeFee,jdbcType=INTEGER}, #{guaranteeTime,jdbcType=INTEGER}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zy.vehiclerepairer.model.MaintainProject">
+    insert into MaintainProject
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="projectName != null">
+        projectName,
+      </if>
+      <if test="chargeUnit != null">
+        chargeUnit,
+      </if>
+      <if test="carType != null">
+        carType,
+      </if>
+      <if test="timeFee != null">
+        TimeFee,
+      </if>
+      <if test="guaranteeTime != null">
+        guaranteeTime,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="projectName != null">
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeUnit != null">
+        #{chargeUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="carType != null">
+        #{carType,jdbcType=VARCHAR},
+      </if>
+      <if test="timeFee != null">
+        #{timeFee,jdbcType=INTEGER},
+      </if>
+      <if test="guaranteeTime != null">
+        #{guaranteeTime,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zy.vehiclerepairer.model.MaintainProject">
+    update MaintainProject
+    <set>
+      <if test="projectName != null">
+        projectName = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeUnit != null">
+        chargeUnit = #{chargeUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="carType != null">
+        carType = #{carType,jdbcType=VARCHAR},
+      </if>
+      <if test="timeFee != null">
+        TimeFee = #{timeFee,jdbcType=INTEGER},
+      </if>
+      <if test="guaranteeTime != null">
+        guaranteeTime = #{guaranteeTime,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zy.vehiclerepairer.model.MaintainProject">
+    update MaintainProject
+    set projectName = #{projectName,jdbcType=VARCHAR},
+      chargeUnit = #{chargeUnit,jdbcType=VARCHAR},
+      carType = #{carType,jdbcType=VARCHAR},
+      TimeFee = #{timeFee,jdbcType=INTEGER},
+      guaranteeTime = #{guaranteeTime,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

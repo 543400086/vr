@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zy.vehiclerepairer.mapper.PartMapper">
+  <resultMap id="BaseResultMap" type="com.zy.vehiclerepairer.model.Part">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="partName" jdbcType="VARCHAR" property="partName" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="standard" jdbcType="VARCHAR" property="standard" />
+    <result column="supplier" jdbcType="VARCHAR" property="supplier" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
+    <result column="validTime" jdbcType="TIMESTAMP" property="validTime" />
+    <result column="generalType" jdbcType="VARCHAR" property="generalType" />
+    <result column="buyPrice" jdbcType="DECIMAL" property="buyPrice" />
+    <result column="SalePrice" jdbcType="DECIMAL" property="salePrice" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, partName, unit, standard, supplier, location, validTime, generalType, buyPrice, 
+    SalePrice, createTime, updateTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Part
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Part
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zy.vehiclerepairer.model.Part">
+    insert into Part (id, partName, unit, 
+      standard, supplier, location, 
+      validTime, generalType, buyPrice, 
+      SalePrice, createTime, updateTime
+      )
+    values (#{id,jdbcType=INTEGER}, #{partName,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, 
+      #{standard,jdbcType=VARCHAR}, #{supplier,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}, 
+      #{validTime,jdbcType=TIMESTAMP}, #{generalType,jdbcType=VARCHAR}, #{buyPrice,jdbcType=DECIMAL}, 
+      #{salePrice,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zy.vehiclerepairer.model.Part">
+    insert into Part
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="partName != null">
+        partName,
+      </if>
+      <if test="unit != null">
+        unit,
+      </if>
+      <if test="standard != null">
+        standard,
+      </if>
+      <if test="supplier != null">
+        supplier,
+      </if>
+      <if test="location != null">
+        location,
+      </if>
+      <if test="validTime != null">
+        validTime,
+      </if>
+      <if test="generalType != null">
+        generalType,
+      </if>
+      <if test="buyPrice != null">
+        buyPrice,
+      </if>
+      <if test="salePrice != null">
+        SalePrice,
+      </if>
+      <if test="createTime != null">
+        createTime,
+      </if>
+      <if test="updateTime != null">
+        updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="partName != null">
+        #{partName,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="standard != null">
+        #{standard,jdbcType=VARCHAR},
+      </if>
+      <if test="supplier != null">
+        #{supplier,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="validTime != null">
+        #{validTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="generalType != null">
+        #{generalType,jdbcType=VARCHAR},
+      </if>
+      <if test="buyPrice != null">
+        #{buyPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="salePrice != null">
+        #{salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zy.vehiclerepairer.model.Part">
+    update Part
+    <set>
+      <if test="partName != null">
+        partName = #{partName,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="standard != null">
+        standard = #{standard,jdbcType=VARCHAR},
+      </if>
+      <if test="supplier != null">
+        supplier = #{supplier,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="validTime != null">
+        validTime = #{validTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="generalType != null">
+        generalType = #{generalType,jdbcType=VARCHAR},
+      </if>
+      <if test="buyPrice != null">
+        buyPrice = #{buyPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="salePrice != null">
+        SalePrice = #{salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        createTime = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zy.vehiclerepairer.model.Part">
+    update Part
+    set partName = #{partName,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      standard = #{standard,jdbcType=VARCHAR},
+      supplier = #{supplier,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
+      validTime = #{validTime,jdbcType=TIMESTAMP},
+      generalType = #{generalType,jdbcType=VARCHAR},
+      buyPrice = #{buyPrice,jdbcType=DECIMAL},
+      SalePrice = #{salePrice,jdbcType=DECIMAL},
+      createTime = #{createTime,jdbcType=TIMESTAMP},
+      updateTime = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

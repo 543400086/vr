@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zy.vehiclerepairer.mapper.PartPurchaseMapper">
+  <resultMap id="BaseResultMap" type="com.zy.vehiclerepairer.model.PartPurchase">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="purchaseNumber" jdbcType="VARCHAR" property="purchaseNumber" />
+    <result column="partId" jdbcType="INTEGER" property="partId" />
+    <result column="buyPrice" jdbcType="DECIMAL" property="buyPrice" />
+    <result column="salePrice" jdbcType="DECIMAL" property="salePrice" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, purchaseNumber, partId, buyPrice, salePrice, createTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PartPurchase
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from PartPurchase
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zy.vehiclerepairer.model.PartPurchase">
+    insert into PartPurchase (id, purchaseNumber, partId, 
+      buyPrice, salePrice, createTime
+      )
+    values (#{id,jdbcType=INTEGER}, #{purchaseNumber,jdbcType=VARCHAR}, #{partId,jdbcType=INTEGER}, 
+      #{buyPrice,jdbcType=DECIMAL}, #{salePrice,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zy.vehiclerepairer.model.PartPurchase">
+    insert into PartPurchase
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="purchaseNumber != null">
+        purchaseNumber,
+      </if>
+      <if test="partId != null">
+        partId,
+      </if>
+      <if test="buyPrice != null">
+        buyPrice,
+      </if>
+      <if test="salePrice != null">
+        salePrice,
+      </if>
+      <if test="createTime != null">
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="purchaseNumber != null">
+        #{purchaseNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="partId != null">
+        #{partId,jdbcType=INTEGER},
+      </if>
+      <if test="buyPrice != null">
+        #{buyPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="salePrice != null">
+        #{salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zy.vehiclerepairer.model.PartPurchase">
+    update PartPurchase
+    <set>
+      <if test="purchaseNumber != null">
+        purchaseNumber = #{purchaseNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="partId != null">
+        partId = #{partId,jdbcType=INTEGER},
+      </if>
+      <if test="buyPrice != null">
+        buyPrice = #{buyPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="salePrice != null">
+        salePrice = #{salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        createTime = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zy.vehiclerepairer.model.PartPurchase">
+    update PartPurchase
+    set purchaseNumber = #{purchaseNumber,jdbcType=VARCHAR},
+      partId = #{partId,jdbcType=INTEGER},
+      buyPrice = #{buyPrice,jdbcType=DECIMAL},
+      salePrice = #{salePrice,jdbcType=DECIMAL},
+      createTime = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
