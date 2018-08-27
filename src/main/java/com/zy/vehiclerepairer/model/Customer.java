@@ -22,6 +22,10 @@ public class Customer implements Serializable {
 
     private String createBy;
 
+    private Date buyTime;
+
+    private Integer drivingDistance;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -94,5 +98,21 @@ public class Customer implements Serializable {
 
     public void setCreateBy(String createBy) {
         this.createBy = createBy == null ? null : createBy.trim();
+    }
+
+    public Date getBuyTime() {
+        return buyTime;
+    }
+
+    public void setBuyTime(Date buyTime) {
+        this.buyTime = buyTime;
+    }
+
+    public Integer getDrivingDistance() {
+        return drivingDistance;
+    }
+
+    public void setDrivingDistance(Integer drivingDistance) {
+        this.drivingDistance = drivingDistance;
     }
 }
