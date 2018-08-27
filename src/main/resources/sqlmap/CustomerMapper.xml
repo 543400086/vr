@@ -6,7 +6,7 @@
     <result column="customerName" jdbcType="VARCHAR" property="customerName" />
     <result column="moble" jdbcType="VARCHAR" property="moble" />
     <result column="address" jdbcType="VARCHAR" property="address" />
-    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="carType" jdbcType="VARCHAR" property="carType" />
     <result column="plateNumber" jdbcType="VARCHAR" property="plateNumber" />
     <result column="engineNumber" jdbcType="VARCHAR" property="engineNumber" />
     <result column="datetime" jdbcType="TIMESTAMP" property="datetime" />
@@ -15,7 +15,7 @@
     <result column="drivingDistance" jdbcType="INTEGER" property="drivingDistance" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, customerName, moble, address, type, plateNumber, engineNumber, datetime, createBy, 
+    id, customerName, moble, address, carType, plateNumber, engineNumber, datetime, createBy, 
     buyTime, drivingDistance
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -30,11 +30,11 @@
   </delete>
   <insert id="insert" parameterType="com.zy.vehiclerepairer.model.Customer">
     insert into Customer (id, customerName, moble, 
-      address, type, plateNumber, 
+      address, carType, plateNumber, 
       engineNumber, datetime, createBy, 
       buyTime, drivingDistance)
     values (#{id,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, #{moble,jdbcType=VARCHAR}, 
-      #{address,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{plateNumber,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{carType,jdbcType=VARCHAR}, #{plateNumber,jdbcType=VARCHAR}, 
       #{engineNumber,jdbcType=VARCHAR}, #{datetime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, 
       #{buyTime,jdbcType=TIMESTAMP}, #{drivingDistance,jdbcType=INTEGER})
   </insert>
@@ -53,8 +53,8 @@
       <if test="address != null">
         address,
       </if>
-      <if test="type != null">
-        type,
+      <if test="carType != null">
+        carType,
       </if>
       <if test="plateNumber != null">
         plateNumber,
@@ -88,8 +88,8 @@
       <if test="address != null">
         #{address,jdbcType=VARCHAR},
       </if>
-      <if test="type != null">
-        #{type,jdbcType=VARCHAR},
+      <if test="carType != null">
+        #{carType,jdbcType=VARCHAR},
       </if>
       <if test="plateNumber != null">
         #{plateNumber,jdbcType=VARCHAR},
@@ -123,8 +123,8 @@
       <if test="address != null">
         address = #{address,jdbcType=VARCHAR},
       </if>
-      <if test="type != null">
-        type = #{type,jdbcType=VARCHAR},
+      <if test="carType != null">
+        carType = #{carType,jdbcType=VARCHAR},
       </if>
       <if test="plateNumber != null">
         plateNumber = #{plateNumber,jdbcType=VARCHAR},
@@ -152,7 +152,7 @@
     set customerName = #{customerName,jdbcType=VARCHAR},
       moble = #{moble,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
-      type = #{type,jdbcType=VARCHAR},
+      carType = #{carType,jdbcType=VARCHAR},
       plateNumber = #{plateNumber,jdbcType=VARCHAR},
       engineNumber = #{engineNumber,jdbcType=VARCHAR},
       datetime = #{datetime,jdbcType=TIMESTAMP},

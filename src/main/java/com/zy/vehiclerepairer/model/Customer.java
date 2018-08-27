@@ -12,7 +12,7 @@ public class Customer implements Serializable {
 
     private String address;
 
-    private String type;
+    private String carType;
 
     private String plateNumber;
 
@@ -60,12 +60,12 @@ public class Customer implements Serializable {
         this.address = address == null ? null : address.trim();
     }
 
-    public String getType() {
-        return type;
+    public String getCarType() {
+        return carType;
     }
 
-    public void setType(String type) {
-        this.type = type == null ? null : type.trim();
+    public void setCarType(String carType) {
+        this.carType = carType == null ? null : carType.trim();
     }
 
     public String getPlateNumber() {
