@@ -13,10 +13,11 @@
     <result column="department" jdbcType="VARCHAR" property="department" />
     <result column="position" jdbcType="VARCHAR" property="position" />
     <result column="level" jdbcType="VARCHAR" property="level" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
   </resultMap>
   <sql id="Base_Column_List">
     id, userName, sex, birthday, mobile, idcard, email, education, department, position, 
-    level
+    level,password
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -161,4 +162,12 @@
       level = #{level,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
+  <select id="selectByUsernameAndPassword"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from User
+    where username = #{username} AND password= #{password}
+  </select>
 </mapper>

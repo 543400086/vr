@@ -27,6 +27,19 @@ public class User implements Serializable {
     private String level;
 
     private static final long serialVersionUID = 1L;
+    private String password;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public Integer getId() {
         return id;
