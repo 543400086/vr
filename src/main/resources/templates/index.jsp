@@ -1,94 +1,76 @@
-
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="assets/css/layui.css">
-    <link rel="stylesheet" href="assets/css/admin.css">
-    <link rel="icon" href="/favicon.ico">
-    <title>管理后台</title>
+    <title>后台管理系统</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="assets/css/dpl-min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/bui-min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/main-min.css" rel="stylesheet" type="text/css"/>
 </head>
-<body class="layui-layout-body">
-<div class="layui-layout layui-layout-admin">
-    <div class="layui-header custom-header">
+<body>
 
-        <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item slide-sidebar" lay-unselect>
-                <a href="javascript:;" class="icon-font"><i class="ai ai-menufold"></i></a>
-            </li>
-        </ul>
+<div class="header">
 
-        <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item">
-                <a href="javascript:;">BieJun</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">帮助中心</a></dd>
-                    <dd><a href="login.html">退出</a></dd>
-                </dl>
-            </li>
-        </ul>
+    <div class="dl-title">
+        <!--<img src="/chinapost/Public/assets/img/top.png">-->
     </div>
 
-    <div class="layui-side custom-admin">
-        <div class="layui-side-scroll">
-
-            <div class="custom-logo">
-                <img src="assets/images/logo.png" alt=""/>
-                <h1>Admin Pro</h1>
-            </div>
-            <ul id="Nav" class="layui-nav layui-nav-tree">
-                <li class="layui-nav-item">
-                    <a href="javascript:;">
-                        <i class="layui-icon">&#xe609;</i>
-                        <em>主页</em>
-                    </a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="views/console.html">控制台</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">
-                        <i class="layui-icon">&#xe857;</i>
-                        <em>组件</em>
-                    </a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="views/form.html">表单</a></dd>
-                        <dd>
-                            <a href="javascript:;">页面</a>
-                            <dl class="layui-nav-child">
-                                <dd>
-                                    <a href="login.html">登录页</a>
-                                </dd>
-                            </dl>
-                        </dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">
-                        <i class="layui-icon">&#xe612;</i>
-                        <em>用户</em>
-                    </a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="views/users.html">用户组</a></dd>
-                        <dd><a href="views/operaterule.html">权限配置</a></dd>
-                    </dl>
-                </li>
-            </ul>
-
-        </div>
+    <div class="dl-log">欢迎您，<span class="dl-log-user">root</span><a href="/chinapost/index.php?m=Public&a=logout"
+                                                                    title="退出系统" class="dl-log-quit">[退出]</a>
     </div>
-
-    <div class="layui-body">
-        <div class="layui-tab app-container" lay-allowClose="true" lay-filter="tabs">
-            <ul id="appTabs" class="layui-tab-title custom-tab"></ul>
-            <div id="appTabPage" class="layui-tab-content"></div>
-        </div>
-    </div>
-    <div class="mobile-mask"></div>
 </div>
-<script src="assets/layui.js"></script>
-<script src="js/index.js" data-main="js/home"></script>
+<div class="content">
+    <div class="dl-main-nav">
+        <div class="dl-inform">
+            <div class="dl-inform-title"><s class="dl-inform-icon dl-up"></s></div>
+        </div>
+        <ul id="J_Nav" class="nav-list ks-clear">
+            <li class="nav-item dl-selected">
+                <div class="nav-item-inner nav-home">系统管理</div>
+            </li>
+            <li class="nav-item dl-selected">
+                <div class="nav-item-inner nav-order">客户管理</div>
+            </li>
+            <li class="nav-item dl-selected">
+                <div class="nav-item-inner nav-order">维修管理</div>
+            </li>
+            <li class="nav-item dl-selected">
+                <div class="nav-item-inner nav-order">采购管理</div>
+            </li>
+            <li class="nav-item dl-selected">
+                <div class="nav-item-inner nav-order">库存管理</div>
+            </li>
+        </ul>
+    </div>
+    <ul id="J_NavContent" class="dl-tab-conten">
+
+    </ul>
+</div>
+<script type="text/javascript" src="assets/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="assets/js/bui-min.js"></script>
+<script type="text/javascript" src="assets/js/common/main-min.js"></script>
+<script type="text/javascript" src="assets/js/config-min.js"></script>
+<script>
+    BUI.use('common/main', function () {
+        var config = [{
+            id: '1',
+            menu: [{
+                text: '系统管理',
+                items: [
+                    {id: '2',text: '角色管理',href: 'Role/index.html'},
+                    {id: '3', text: '用户管理', href: 'User/index.html'},
+                    {id: '6', text: '菜单管理', href: 'menu'}]
+            }]
+        },
+            {
+                id: '7',
+                homePage: '9',
+                menu: [{text: '业务管理', items: [{id: '9', text: '查询业务', href: 'Node/index.html'}]}]
+            }];
+        new PageUtil.MainPage({
+            modulesConfig: config
+        });
+    });
+</script>
 </body>
 </html>

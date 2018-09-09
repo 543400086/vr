@@ -42,4 +42,9 @@ public class UserController {
     public String index(HttpServletRequest request) {
         return "";
     }
+
+    @RequestMapping("/menu")
+    public  String menu(){
+        return "menu";
+    }
 }

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -30,5 +31,5 @@
 </div>
 </body>
 <script src="assets/layui.js"></script>
-<script src="/js/index.js" data-main="login"></script>
+<script src="/js/index.js" data-main="js/login"></script>
 </html>
