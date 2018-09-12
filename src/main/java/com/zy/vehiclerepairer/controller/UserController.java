@@ -1,11 +1,11 @@
 package com.zy.vehiclerepairer.controller;
 
 import com.zy.vehiclerepairer.model.User;
-import com.zy.vehiclerepairer.service.UserService;
+import com.zy.vehiclerepairer.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class UserController {
     @Autowired
-    private UserService userService;
+    private IUserService userService;
 
     @RequestMapping("/login")
     public String login(HttpServletRequest request) {
@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @RequestMapping("/verify")
-    public String validLogin(HttpServletRequest request) {
+    public String validLogin(HttpServletRequest request, Model model) {
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
         User user = null;
@@ -34,6 +34,8 @@ public class UserController {
         if (user != null) {
             return "index";
         } else {
+
+            model.addAttribute("error","用户名密码错误");
             return "login";
         }
     }

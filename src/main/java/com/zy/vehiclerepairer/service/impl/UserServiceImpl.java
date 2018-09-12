@@ -1,17 +1,19 @@
-package com.zy.vehiclerepairer.service;
+package com.zy.vehiclerepairer.service.impl;
 
 import com.zy.vehiclerepairer.mapper.UserMapper;
 import com.zy.vehiclerepairer.model.User;
+import com.zy.vehiclerepairer.service.IUserService;
+import com.zy.vehiclerepairer.service.impl.CustomerServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class UserServiceImpl implements IUserService {
 
     @Autowired
-    private static Logger logger = LoggerFactory.getLogger(CustomerService.class);
+    private static Logger logger = LoggerFactory.getLogger(CustomerServiceImpl.class);
     @Autowired
     private UserMapper userMapper;
 

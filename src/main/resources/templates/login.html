@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,6 +25,8 @@
             <label for="password" class="input-label">
                 <span class="label-title">密码</span>
             </label>
+        </div>
+        <div th:text="${error}">
         </div>
         <button type="submit" class="login-button">登录<i class="ai ai-enter"></i></button>
     </form>
