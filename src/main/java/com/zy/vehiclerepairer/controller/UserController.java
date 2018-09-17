@@ -42,7 +42,7 @@ public class UserController {
 
     @RequestMapping("/index")
     public String index(HttpServletRequest request) {
-        return "";
+        return "index";
     }
 
     @RequestMapping("/menu")

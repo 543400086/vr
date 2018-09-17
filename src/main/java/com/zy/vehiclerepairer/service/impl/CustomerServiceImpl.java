@@ -2,6 +2,7 @@ package com.zy.vehiclerepairer.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.StringUtil;
 import com.zy.vehiclerepairer.exception.BusinessException;
 import com.zy.vehiclerepairer.mapper.CustomerMapper;
@@ -41,7 +42,7 @@ public class CustomerServiceImpl implements ICustomerService {
     }*/
 
     @Override
-    public Page<Customer> getList(String mobile, String plateNumber, Integer page, Integer limit) {
+    public PageInfo<Customer> getList(String mobile, String plateNumber, Integer page, Integer limit) {
         Map params = new HashMap();
         if (mobile != null && !"".equals(mobile)) {
             params.put("mobile", mobile);
@@ -53,8 +54,9 @@ public class CustomerServiceImpl implements ICustomerService {
 
         PageHelper.startPage(page, limit);
         List<Customer> customerList = customerMapper.getList(params);
-        Page<Customer> list = (Page) customerList;
-        return list;
+
+        PageInfo<Customer> pageInfo = new PageInfo<>(customerList);
+        return pageInfo;
     }
 
     /**
@@ -92,6 +94,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
     /**
      * 根据手机号或车牌号查询
+     *
      * @param mobile
      * @param plateNumber
      * @return

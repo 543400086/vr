@@ -1,6 +1,7 @@
 package com.zy.vehiclerepairer.service;
 
 import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import com.zy.vehiclerepairer.model.Customer;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 public interface ICustomerService {
     Customer selectByPrimaryKey(Integer id);
 
-    Page<Customer> getList(String mobile, String plateNumber, Integer page, Integer limit);
+    PageInfo<Customer> getList(String mobile, String plateNumber, Integer page, Integer limit);
 
     int insert(Customer customer);
 
