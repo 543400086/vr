@@ -6,24 +6,46 @@ import java.util.Date;
 public class Customer implements Serializable {
     private Integer id;
 
+    /**
+     * 客户姓名
+     */
     private String customerName;
 
+    /**
+     * 手机号
+     */
     private String moble;
 
+    /**
+     * 地址
+     */
     private String address;
-
+    /**
+     * 车型
+     */
     private String carType;
 
+    /**
+     * 车牌号
+     */
     private String plateNumber;
-
+    /**
+     * 发动机号
+     */
     private String engineNumber;
 
     private Date datetime;
-
+    /**
+     * 创建人
+     */
     private String createBy;
-
+    /**
+     * 购买时间
+     */
     private Date buyTime;
-
+    /**
+     * 折扣率
+     */
     private Integer drivingDistance;
 
     private static final long serialVersionUID = 1L;

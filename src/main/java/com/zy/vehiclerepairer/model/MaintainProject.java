@@ -4,17 +4,29 @@ import java.io.Serializable;
 
 public class MaintainProject implements Serializable {
     private Integer id;
-
+    /**
+     * 修改名称
+     */
     private String projectName;
-
+    /**
+     * 计费单位
+     */
     private String chargeUnit;
-
+    /**
+     *车型
+     */
     private String carType;
-
+    /**
+     *工时费
+     */
     private Integer timeFee;
-
+    /**
+     * 保修期限
+     */
     private Integer guaranteeTime;
-
+    /**
+     * 备注
+     */
     private String remark;
 
     private static final long serialVersionUID = 1L;

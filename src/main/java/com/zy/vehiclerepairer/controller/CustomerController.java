@@ -33,4 +33,16 @@ public class CustomerController {
         model.addAttribute("customers", contentsPaginator);
         return "customer/list";
     }
+
+
+    @RequestMapping(value = "add")
+    public boolean add(Customer customer, HttpServletRequest request) {
+        return customerService.insert(customer) > 0 ? true : false;
+    }
+
+
+    @RequestMapping(value = "update")
+    public boolean update(Customer customer, HttpServletRequest request) {
+        return customerService.update(customer) > 0 ? true : false;
+    }
 }

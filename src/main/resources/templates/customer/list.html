@@ -4,7 +4,7 @@
     <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.js"></script>
     <link href="https://cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap-responsive.css" rel="stylesheet">
-    <link rel="stylesheet" href="bootstrap/css/style.css">
+    <link rel="stylesheet" href="/bootstrap/css/style.css">
 
     <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
     <script type="text/javascript" src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
@@ -13,7 +13,15 @@
 
 </head>
 <body>
-<table id="dataTableExample" class="table table-bordered table-hover dataTable table-striped width-full">
+<form class="form-inline definewidth m20" action="index.html" method="get">
+    手机号：
+    <input type="text" name="menuname" id="mobile" class="abc input-default" placeholder="" value="">&nbsp;&nbsp;
+    车牌号：
+    <input type="text" name="menuname" id="plateNumber" class="abc input-default" placeholder="" value="">&nbsp;&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-success" id="addnew">新增客户</button>
+</form>
+<table id="dataTableExample" class="table table-bordered table-hover definewidth m10">
     <thead>
     <tr>
         <th>客户姓名</th>
@@ -23,6 +31,7 @@
         <th>车牌号</th>
         <th>发动机号</th>
         <th>购买日期</th>
+        <th>管理操作</th>
     </tr>
     </thead>
     <tbody>
@@ -35,6 +44,9 @@
             <td th:text="${item.plateNumber}"></td>
             <td th:text="${item.engineNumber}"></td>
             <td th:text="${item.buyTime}"></td>
+            <td><a href="edit.html">编辑</a>
+                <a href="edit.html">删除</a>
+            </td>
         </tr>
 
     </th:block>

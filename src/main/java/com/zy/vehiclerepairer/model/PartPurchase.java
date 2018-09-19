@@ -3,15 +3,26 @@ package com.zy.vehiclerepairer.model;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 配件采购流水表
+ */
 public class PartPurchase implements Serializable {
     private Integer id;
-
+    /**
+     * 流水号
+     */
     private String purchaseNumber;
-
+    /**
+     * 配件Id
+     */
     private Integer partId;
-
+    /**
+     * 进货价
+     */
     private Long buyPrice;
-
+    /**
+     * 销售价
+     */
     private Long salePrice;
 
     private Date createTime;

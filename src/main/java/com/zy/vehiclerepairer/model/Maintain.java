@@ -5,25 +5,45 @@ import java.util.Date;
 
 public class Maintain implements Serializable {
     private Integer id;
-
+    /**
+     * 客户Id
+     */
     private Integer customerId;
-
+    /**
+     * 修改Id
+     */
     private Integer projctId;
-
+    /**
+     * 配件Id
+     */
     private Integer partId;
-
+    /**
+     * 修改开始时间
+     */
     private Date beginTime;
-
+    /**
+     * 维修结束时间
+     */
     private Date endTime;
-
+    /**
+     * 订单总价
+     */
     private Short totalPrice;
-
+    /**
+     * 折扣
+     */
     private Short discount;
-
+    /**
+     * 折扣金额
+     */
     private Short discountAmount;
-
+    /**
+     * 状态：1维修中 2完成 3已结算
+     */
     private Integer status;
-
+    /**
+     * 维修人
+     */
     private String maintainName;
 
     private static final long serialVersionUID = 1L;

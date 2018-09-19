@@ -3,25 +3,46 @@ package com.zy.vehiclerepairer.model;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 配件表
+ */
 public class Part implements Serializable {
     private Integer id;
-
+    /**
+     * 配件名称
+     */
     private String partName;
-
+    /**
+     * 单位
+     */
     private String unit;
-
+    /**
+     * 规格
+     */
     private String standard;
-
+    /**
+     * 供应商
+     */
     private String supplier;
-
+    /**
+     * 产地
+     */
     private String location;
-
+    /**
+     * 有效期
+     */
     private Date validTime;
-
+    /**
+     * 通用车型
+     */
     private String generalType;
-
+    /**
+     * 进货价
+     */
     private Long buyPrice;
-
+    /**
+     * 销售价
+     */
     private Long salePrice;
 
     private Date createTime;

@@ -2,13 +2,22 @@ package com.zy.vehiclerepairer.model;
 
 import java.io.Serializable;
 
+/**
+ * 配件库存表
+ */
 public class ParStock implements Serializable {
     private Integer id;
-
+    /**
+     * 配件Id
+     */
     private Integer partId;
-
+    /**
+     * 库存数量
+     */
     private Integer count;
-
+    /**
+     * 状态：1可销售  0冻结
+     */
     private Integer status;
 
     private static final long serialVersionUID = 1L;
