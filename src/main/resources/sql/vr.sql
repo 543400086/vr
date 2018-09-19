@@ -59,13 +59,12 @@ create table MaintainOrder
    primary key (id)
 );
 
-
-drop table if exists MaintainOrderDetai;
+drop table if exists MaintainOrderDetail;
 
 /*==============================================================*/
-/* Table: MaintainOrderDetai                                    */
+/* Table: MaintainOrderDetail                                   */
 /*==============================================================*/
-create table MaintainOrderDetai
+create table MaintainOrderDetail
 (
    id                   int not null auto_increment,
    orderId              int4,
@@ -78,6 +77,7 @@ create table MaintainOrderDetai
    createTime           datetime,
    primary key (id)
 );
+
 
 
 

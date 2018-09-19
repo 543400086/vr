@@ -3,23 +3,15 @@ package com.zy.vehiclerepairer.model;
 import java.io.Serializable;
 import java.util.Date;
 
-public class MaintainOrderDetai implements Serializable {
+public class MaintainOrderDetail implements Serializable {
     private Integer id;
-    /**
-     * 订单Id
-     */
+
     private Integer orderId;
-    /**
-     * 项目id
-     */
+
     private Integer itemId;
-    /**
-     * 项目名称
-     */
+
     private String itemName;
-    /**
-     * 类型：1维修项目   2配件
-     */
+
     private Integer itemType;
 
     private Short buyPrice;
