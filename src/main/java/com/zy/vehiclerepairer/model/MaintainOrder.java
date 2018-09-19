@@ -3,20 +3,14 @@ package com.zy.vehiclerepairer.model;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Maintain implements Serializable {
+public class MaintainOrder implements Serializable {
     private Integer id;
+
     /**
      * 客户Id
      */
     private Integer customerId;
-    /**
-     * 修改Id
-     */
-    private Integer projctId;
-    /**
-     * 配件Id
-     */
-    private Integer partId;
+
     /**
      * 修改开始时间
      */
@@ -25,6 +19,7 @@ public class Maintain implements Serializable {
      * 维修结束时间
      */
     private Date endTime;
+
     /**
      * 订单总价
      */
@@ -62,22 +57,6 @@ public class Maintain implements Serializable {
 
     public void setCustomerId(Integer customerId) {
         this.customerId = customerId;
-    }
-
-    public Integer getProjctId() {
-        return projctId;
-    }
-
-    public void setProjctId(Integer projctId) {
-        this.projctId = projctId;
-    }
-
-    public Integer getPartId() {
-        return partId;
-    }
-
-    public void setPartId(Integer partId) {
-        this.partId = partId;
     }
 
     public Date getBeginTime() {

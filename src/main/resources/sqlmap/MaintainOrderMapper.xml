@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zy.vehiclerepairer.mapper.MaintainMapper">
-  <resultMap id="BaseResultMap" type="com.zy.vehiclerepairer.model.Maintain">
+<mapper namespace="com.zy.vehiclerepairer.mapper.MaintainOrderMapper">
+  <resultMap id="BaseResultMap" type="com.zy.vehiclerepairer.model.MaintainOrder">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="customerId" jdbcType="INTEGER" property="customerId" />
-    <result column="projctId" jdbcType="INTEGER" property="projctId" />
-    <result column="partId" jdbcType="INTEGER" property="partId" />
     <result column="beginTime" jdbcType="TIMESTAMP" property="beginTime" />
     <result column="endTime" jdbcType="TIMESTAMP" property="endTime" />
     <result column="totalPrice" jdbcType="DECIMAL" property="totalPrice" />
@@ -15,43 +13,37 @@
     <result column="maintainName" jdbcType="VARCHAR" property="maintainName" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, customerId, projctId, partId, beginTime, endTime, totalPrice, discount, discountAmount, 
-    status, maintainName
+    id, customerId, beginTime, endTime, totalPrice, discount, discountAmount, status, 
+    maintainName
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from Maintain
+    from MaintainOrder
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from Maintain
+    delete from MaintainOrder
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.zy.vehiclerepairer.model.Maintain">
-    insert into Maintain (id, customerId, projctId, 
-      partId, beginTime, endTime, 
-      totalPrice, discount, discountAmount, 
-      status, maintainName)
-    values (#{id,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER}, #{projctId,jdbcType=INTEGER}, 
-      #{partId,jdbcType=INTEGER}, #{beginTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
-      #{totalPrice,jdbcType=DECIMAL}, #{discount,jdbcType=DECIMAL}, #{discountAmount,jdbcType=DECIMAL}, 
-      #{status,jdbcType=INTEGER}, #{maintainName,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.zy.vehiclerepairer.model.MaintainOrder">
+    insert into MaintainOrder (id, customerId, beginTime, 
+      endTime, totalPrice, discount, 
+      discountAmount, status, maintainName
+      )
+    values (#{id,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER}, #{beginTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{totalPrice,jdbcType=DECIMAL}, #{discount,jdbcType=DECIMAL}, 
+      #{discountAmount,jdbcType=DECIMAL}, #{status,jdbcType=INTEGER}, #{maintainName,jdbcType=VARCHAR}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.zy.vehiclerepairer.model.Maintain">
-    insert into Maintain
+  <insert id="insertSelective" parameterType="com.zy.vehiclerepairer.model.MaintainOrder">
+    insert into MaintainOrder
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
       <if test="customerId != null">
         customerId,
-      </if>
-      <if test="projctId != null">
-        projctId,
-      </if>
-      <if test="partId != null">
-        partId,
       </if>
       <if test="beginTime != null">
         beginTime,
@@ -82,12 +74,6 @@
       <if test="customerId != null">
         #{customerId,jdbcType=INTEGER},
       </if>
-      <if test="projctId != null">
-        #{projctId,jdbcType=INTEGER},
-      </if>
-      <if test="partId != null">
-        #{partId,jdbcType=INTEGER},
-      </if>
       <if test="beginTime != null">
         #{beginTime,jdbcType=TIMESTAMP},
       </if>
@@ -111,17 +97,11 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zy.vehiclerepairer.model.Maintain">
-    update Maintain
+  <update id="updateByPrimaryKeySelective" parameterType="com.zy.vehiclerepairer.model.MaintainOrder">
+    update MaintainOrder
     <set>
       <if test="customerId != null">
         customerId = #{customerId,jdbcType=INTEGER},
-      </if>
-      <if test="projctId != null">
-        projctId = #{projctId,jdbcType=INTEGER},
-      </if>
-      <if test="partId != null">
-        partId = #{partId,jdbcType=INTEGER},
       </if>
       <if test="beginTime != null">
         beginTime = #{beginTime,jdbcType=TIMESTAMP},
@@ -147,11 +127,9 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zy.vehiclerepairer.model.Maintain">
-    update Maintain
+  <update id="updateByPrimaryKey" parameterType="com.zy.vehiclerepairer.model.MaintainOrder">
+    update MaintainOrder
     set customerId = #{customerId,jdbcType=INTEGER},
-      projctId = #{projctId,jdbcType=INTEGER},
-      partId = #{partId,jdbcType=INTEGER},
       beginTime = #{beginTime,jdbcType=TIMESTAMP},
       endTime = #{endTime,jdbcType=TIMESTAMP},
       totalPrice = #{totalPrice,jdbcType=DECIMAL},

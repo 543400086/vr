@@ -40,17 +40,15 @@ create table Customer
 );
 
 
-drop table if exists Maintain;
+drop table if exists MaintainOrder;
 
 /*==============================================================*/
-/* Table: Maintain                                              */
+/* Table: MaintainOrder                                         */
 /*==============================================================*/
-create table Maintain
+create table MaintainOrder
 (
    id                   int not null auto_increment,
    customerId           int4 comment '客户Id',
-   projctId             int4,
-   partId               int4 comment '配件Id',
    beginTime            datetime comment '维修开始时间',
    endTime              datetime comment '维修结束时间',
    totalPrice           decimal(2) comment '订单总金额',
@@ -60,6 +58,29 @@ create table Maintain
    maintainName         varchar(20) comment '维修人',
    primary key (id)
 );
+
+
+drop table if exists MaintainOrderDetai;
+
+/*==============================================================*/
+/* Table: MaintainOrderDetai                                    */
+/*==============================================================*/
+create table MaintainOrderDetai
+(
+   id                   int not null auto_increment,
+   orderId              int4,
+   itemId               int4,
+   itemName             varchar(50),
+   itemType             int comment '类型：1维修项目   2配件',
+   buyPrice             decimal(2) comment '进货价',
+   salePrice            decimal(2) comment '销售价',
+   count                int comment '数量',
+   createTime           datetime,
+   primary key (id)
+);
+
+
+
 
 
 drop table if exists MaintainProject;
