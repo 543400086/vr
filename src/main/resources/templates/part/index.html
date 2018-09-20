@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="/bootstrap/css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/select2/4.0.6-rc.1/css/select2.css"/>
+    <script type="text/javascript" src="https://cdn.bootcss.com/select2/4.0.6-rc.1/js/i18n/zh-CN.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/select2/4.0.6-rc.1/js/select2.js"></script>
+
+    <script type="text/javascript"
+            src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+
+    <link href="https://cdn.bootcss.com/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.js"></script>
+    <script src="https://cdn.bootcss.com/smalot-bootstrap-datetimepicker/2.4.3/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <link href="https://cdn.bootcss.com/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+
+<select id="sel_menu2" class="form-control" data-plugin="select2">
+    <optgroup label="A 字母开头">
+        <option value="AC BMW">A AC宝马</option>
+        <option value="Aston Martin">A 阿斯顿马丁</option>
+        <option value="Audi">A 奥迪</option>
+    </optgroup>
+    <optgroup label="B 字母开头">
+        <option value="Brabus">B 巴博斯</option>
+        <option value="Porsche">B 保时捷</option>
+        <option value="Po Chun">B 宝骏</option>
+        <option value="BMW">B 宝马</option>
+        <option value="Beijing">B 北京汽车</option>
+        <option value="BAW">B 北汽制造</option>
+        <option value="Benz">B 奔驰</option>
+    </optgroup>
+</select>
+</body>
+</html>
+
+<script>
+    $(function () {
+        $("#sel_menu2").select2({
+            tags: true,
+            maximumSelectionLength: 3  //最多能够选择的个数
+        });
+    });
+</script>

@@ -143,12 +143,12 @@ create table PartPurchase
 );
 
 
-drop table if exists ParStock;
+drop table if exists PartStock;
 
 /*==============================================================*/
-/* Table: ParStock                                              */
+/* Table: PartStock                                              */
 /*==============================================================*/
-create table ParStock
+create table PartStock
 (
    id                   int not null auto_increment,
    partId               int4,

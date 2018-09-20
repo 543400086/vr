@@ -11,4 +11,5 @@ public interface IPartService {
     int updateByPrimaryKeySelective(Part part);
     List<Part> getList(Map params);
     Part selectByPrimaryKey(Integer id);
+
 }
