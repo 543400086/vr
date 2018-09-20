@@ -11,14 +11,19 @@
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
 
 
-    <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
-    <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.zh-CN.min.js"></script>
 
     <link href="https://cdn.bootcss.com/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.js"></script>
     <script src="https://cdn.bootcss.com/smalot-bootstrap-datetimepicker/2.4.3/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
     <link href="https://cdn.bootcss.com/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css" rel="stylesheet">
 
+    <!--模态-->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <form class="form-inline definewidth m20" action="index.html" method="get">
@@ -27,8 +32,8 @@
     车牌号：
     <input type="text" name="menuname" id="plateNumber" class="abc input-default" placeholder="" value="">&nbsp;&nbsp;
     <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;
-    <button type="button" class="btn btn-success" data-toggle="modal"  data-target="#addCustomer">新增客户</button>
-    <button class="btn btn-success" data-toggle="modal" data-target="#addCustomer">新增客户</button>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addCustomer">新增客户</button>
+
 </form>
 <table id="dataTableExample" class="table table-bordered table-hover definewidth m10">
     <thead>
@@ -53,7 +58,8 @@
             <td th:text="${item.plateNumber}"></td>
             <td th:text="${item.engineNumber}"></td>
             <td th:text="${item.buyTime}"></td>
-            <td><a href="edit.html">编辑</a>
+            <td>
+                <a type="button" data-toggle="modal" data-target="#addCustomer">编辑</a>
                 <a href="edit.html">删除</a>
             </td>
         </tr>
@@ -69,9 +75,6 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    &times;
-                </button>
                 <h4 class="modal-title" id="myModalLabel">
                     编号客户信息
                 </h4>
@@ -79,7 +82,7 @@
             <div class="modal-body">
                 <table class="table table-bordered table-hover definewidth m10">
                     <tr>
-                        <td width="10%" class="tableleft">客户姓名</td>
+                        <td class="tableleft">客户姓名</td>
                         <td><input type="text" name="customer"/></td>
                     </tr>
                     <tr>
