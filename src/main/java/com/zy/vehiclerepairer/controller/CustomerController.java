@@ -27,7 +27,11 @@ public class CustomerController {
     public String getList(@RequestParam(value = "page", defaultValue = "1") int page,
                           @RequestParam(value = "limit", defaultValue = "3") int limit,
                           HttpServletRequest request,
+                          Customer customer,
                           Model model) {
+
+        String plateNumber = request.getParameter("plateNumber");
+        String mobile = request.getParameter("mobile");
 
         PageInfo<Customer> contentsPaginator = customerService.getList("", "", page, limit);
         model.addAttribute("customers", contentsPaginator);

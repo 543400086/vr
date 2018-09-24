@@ -184,5 +184,14 @@
         <if test="plateNumber != null">
           AND  plateNumber= #{plateNumber,jdbcType=VARCHAR},
         </if>
+
+        <if test="limit != null">
+            <if test="offset != null">
+                limit ${offset}, ${limit}
+            </if>
+            <if test="offset == null">
+                limit ${limit}
+            </if>
+        </if>
     </select>
 </mapper>

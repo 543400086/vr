@@ -26,11 +26,11 @@
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<form class="form-inline definewidth m20" action="index.html" method="get">
+<form class="form-inline definewidth m20" action="/customer/index" method="get">
     手机号：
-    <input type="text" name="menuname" id="mobile" class="abc input-default" placeholder="" value="">&nbsp;&nbsp;
+    <input type="text" name="mobile" id="mobile" class="abc input-default" placeholder="" value="">&nbsp;&nbsp;
     车牌号：
-    <input type="text" name="menuname" id="plateNumber" class="abc input-default" placeholder="" value="">&nbsp;&nbsp;
+    <input type="text" name="plateNumber" id="plateNumber" class="abc input-default" placeholder="" value="">&nbsp;&nbsp;
     <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addCustomer">新增客户</button>
 
@@ -57,9 +57,9 @@
             <td th:text="${item.carType}"></td>
             <td th:text="${item.plateNumber}"></td>
             <td th:text="${item.engineNumber}"></td>
-            <td th:text="${item.buyTime}"></td>
+            <td th:text="${#dates.format(item.buyTime, 'yyyy-MM-dd HH:mm')}"></td>
             <td>
-                <a type="button" data-toggle="modal" data-target="#addCustomer">编辑</a>
+                <a class="btn btn-sm" data-toggle="modal" data-target="#addCustomer">编辑</a>
                 <a href="edit.html">删除</a>
             </td>
         </tr>
@@ -83,11 +83,11 @@
                 <table class="table table-bordered table-hover definewidth m10">
                     <tr>
                         <td class="tableleft">客户姓名</td>
-                        <td><input type="text" name="customer"/></td>
+                        <td><input type="text" name="customerName"/></td>
                     </tr>
                     <tr>
                         <td class="tableleft">电话</td>
-                        <td><input type="password" name="mobile"/></td>
+                        <td><input type="text" name="mobile"/></td>
                     </tr>
                     <tr>
                         <td class="tableleft">地址</td>
@@ -108,7 +108,12 @@
                     <tr>
                         <td class="tableleft">购买日期</td>
                         <td>
+                            <div class="input-group date" data-provide="datepicker">
                             <input type="text" id="datepicker" class="form-control">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-th"></span>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -137,30 +142,11 @@
 
 </body>
 </html>
-<!--
-
 <script>
     $(function () {
 
-        var t = $('#dataTableExample').DataTable({
-            "ajax": [
-                {
-                    "name": "Tiger Nixon",
-                    "position": "System Architect",
-                    "salary": "$3,120",
-                    "start_date": "2011/04/25",
-                    "office": "Edinburgh",
-                    "extn": 5421
-                },
-                {
-                    "name": "Garrett Winters",
-                    "position": "Director",
-                    "salary": "5300",
-                    "start_date": "2011/07/25",
-                    "office": "Edinburgh",
-                    "extn": "8422"
-                }
-            ]
+        $('#datepicker').parent().datepicker({
+            "autoclose": true, "format": "yyyy-mm-dd", "language": "zh-CN"
         });
     })
-</script>-->
+</script>

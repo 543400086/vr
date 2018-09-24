@@ -1,9 +1,7 @@
 package com.zy.vehiclerepairer.service.impl;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.github.pagehelper.StringUtil;
 import com.zy.vehiclerepairer.exception.BusinessException;
 import com.zy.vehiclerepairer.mapper.CustomerMapper;
 import com.zy.vehiclerepairer.model.Customer;
@@ -51,7 +49,6 @@ public class CustomerServiceImpl implements ICustomerService {
         if (plateNumber != null && !"".equals(plateNumber)) {
             params.put("plateNumber", plateNumber);
         }
-
         PageHelper.startPage(page, limit);
         List<Customer> customerList = customerMapper.getList(params);
 
@@ -111,14 +108,14 @@ public class CustomerServiceImpl implements ICustomerService {
      * @param customer
      */
     private void paramVerify(Customer customer) {
-        if (StringUtil.isEmpty(customer.getCustomerName())) {
-            throw new BusinessException("客户姓名不能为空");
-        }
-        if (StringUtil.isEmpty(customer.getMoble())) {
-            throw new BusinessException("客户手机号不能为空");
-        }
-        if (StringUtil.isEmpty(customer.getPlateNumber())) {
-            throw new BusinessException("车牌号不能为空");
-        }
+//        if (StringUtil.isEmpty(customer.getCustomerName())) {
+//            throw new BusinessException("客户姓名不能为空");
+//        }
+//        if (StringUtil.isEmpty(customer.getMoble())) {
+//            throw new BusinessException("客户手机号不能为空");
+//        }
+//        if (StringUtil.isEmpty(customer.getPlateNumber())) {
+//            throw new BusinessException("车牌号不能为空");
+//        }
     }
 }
