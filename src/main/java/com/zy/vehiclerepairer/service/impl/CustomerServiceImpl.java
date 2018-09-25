@@ -69,7 +69,7 @@ public class CustomerServiceImpl implements ICustomerService {
         /**参数合法性较验*/
         paramVerify(customer);
         /**查询当前记录是否已存在*/
-        customerList = getListByMobileOrPlateNumber(customer.getMoble(), customer.getPlateNumber());
+        customerList = getListByMobileOrPlateNumber(customer.getMobile(), customer.getPlateNumber());
         if (customerList.size() != 0) {
             throw new BusinessException("已经存在该项");
         } else {
@@ -111,7 +111,7 @@ public class CustomerServiceImpl implements ICustomerService {
 //        if (StringUtil.isEmpty(customer.getCustomerName())) {
 //            throw new BusinessException("客户姓名不能为空");
 //        }
-//        if (StringUtil.isEmpty(customer.getMoble())) {
+//        if (StringUtil.isEmpty(customer.getMobile())) {
 //            throw new BusinessException("客户手机号不能为空");
 //        }
 //        if (StringUtil.isEmpty(customer.getPlateNumber())) {

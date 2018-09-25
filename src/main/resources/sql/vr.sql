@@ -29,7 +29,7 @@ create table Customer
 (
    id                   int not null auto_increment,
    customerName         varchar(50),
-   moble                varchar(50),
+   mobile               varchar(50),
    address              varchar(200),
    type                 varchar(50),
    plateNumber          varchar(50),

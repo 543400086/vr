@@ -14,7 +14,7 @@ public class Customer implements Serializable {
     /**
      * 手机号
      */
-    private String moble;
+    private String mobile;
 
     /**
      * 地址
@@ -66,12 +66,12 @@ public class Customer implements Serializable {
         this.customerName = customerName == null ? null : customerName.trim();
     }
 
-    public String getMoble() {
-        return moble;
+    public String getMobile() {
+        return mobile;
     }
 
-    public void setMoble(String moble) {
-        this.moble = moble == null ? null : moble.trim();
+    public void setMobile(String mobile) {
+        this.mobile = mobile == null ? null : mobile.trim();
     }
 
     public String getAddress() {
